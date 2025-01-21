@@ -21,7 +21,7 @@ let difficulty = "hard";
  *
  */
 function randomInteger(min, max) {
-  // return Math.floor(Math.random() * (max - min + 1)) + min;
+   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -41,6 +41,15 @@ function randomInteger(min, max) {
  */
 function setDelay(difficulty) {
   // TODO: Write your code here.
+  if (difficulty== 'easy'){
+  return 1500;
+  }
+ else if(difficulty== 'easy'){
+ return 1000;
+}
+else{
+ return 856;
+}
   
 }
 
@@ -59,7 +68,13 @@ function setDelay(difficulty) {
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
 function chooseHole(holes) {
-  // TODO: Write your code here.
+  const index = randomInteger(0, 2);
+    const hole = holes[index];
+    if (hole === lastHole) {
+      return chooseHole(holes);
+    }
+    lastHole = hole;
+    return hole;
 
 }
 
@@ -253,12 +268,12 @@ function stopGame(){
  * Note: Simply uncommenting `setDuration(10);` and `showUp();` is not enough. To make the game work, ensure all necessary functions listed above are called to initialize the score, timer, event listeners, and mole appearances. 
 */
 function startGame(){
-  //clearScore();
-  //stopGame();   //optional
-  //setDuration(10);
-  //setEventListeners();
-  //startTimer();
-  //showUp();
+  clearScore();
+  stopGame();   //optional
+  setDuration(10);
+  setEventListeners();
+  startTimer();
+  showUp();
   return "game started";
 }
 
