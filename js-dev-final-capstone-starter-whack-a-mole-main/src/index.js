@@ -190,8 +190,10 @@ function clearScore() {
 *
 */
 function updateTimer() {
-  points++;
-  score.textContent = points;
+   if (time > 0){
+     time -= 1;
+     timerDisplay.textContent = time;
+   }
   return time;
 }
 
@@ -202,8 +204,7 @@ function updateTimer() {
 *
 */
 function startTimer() {
-  // TODO: Write your code here
-  // timer = setInterval(updateTimer, 1000);
+  timer = setInterval(updateTimer, 1000);
   return timer;
 }
 
